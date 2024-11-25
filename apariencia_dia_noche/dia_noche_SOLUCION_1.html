@@ -23,7 +23,7 @@
       </header>
       <div class="content">
         <main>
-          <button class="dia_boton" id="btn1" onclick="apariencia()">NOCHE</button>
+          <button class="dia_boton" id="btn1" onclick="apariencia(event)">NOCHE</button>
         </main>
         <aside>
           <form action="cliente.html" method="get">
@@ -96,8 +96,15 @@ botonApariencia.innerText="Dia";
 
 /* MODELO B */
 
-function apariencia() {
-  const botonApariencia=document.getElementById("btn1");
+function apariencia(event) {
+
+// console.log (event);
+let idBoton=event.target.id;
+let nombreBoton=event.target.nodeName;
+
+alert(idBoton+"  "+nombreBoton);
+
+  const botonApariencia=document.getElementById(idBoton);
   const cuerpoPagina=document.querySelector("body");
   const contenedor=document.querySelector(".contenedor");
 
@@ -106,9 +113,10 @@ function apariencia() {
   botonApariencia.classList.toggle ("noche_boton");
 
   let estadoBoton=botonApariencia.innerText;
-  alert (estadoBoton);
+  
+  //alert (estadoBoton);
 
-  botonApariencia.innerText="Día";
+  //botonApariencia.innerText="Día";
 
   if (estadoBoton=="Día") { botonApariencia.innerText="Noche"};
   if (estadoBoton=="Noche") {botonApariencia.innerText="Día"};
