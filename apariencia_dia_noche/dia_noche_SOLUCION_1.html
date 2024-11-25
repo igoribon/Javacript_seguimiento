@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style_SOLUCION_1.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="contenedor">
+      <nav>
+        <ul>
+          <li>Inicio</li>
+          <li>Productos</li>
+          <li>Contacto</li>
+        </ul>
+      </nav>
+      <header>
+        <h1>Pagina de Repaso</h1>
+        <div></div>
+        <div></div>
+        <div></div>
+      </header>
+      <div class="content">
+        <main>
+          <button class="dia_boton" id="btn1" onclick="apariencia()">NOCHE</button>
+        </main>
+        <aside>
+          <form action="cliente.html" method="get">
+            <legend>Logueo-Registro</legend>
+            <p></p>
+
+            <input type="text" name="nombre" /> Nombre
+            <p></p>
+
+            <input type="text" name="apellido" /> Apellido
+            <p></p>
+
+            <input type="password" /> Contraseña
+            <p></p>
+            <input type="text" name="edad" /> Edad
+            <p></p>
+
+            <button type="submit">ENVIAR</button>
+          </form>
+        </aside>
+      </div>
+
+      <footer></footer>
+    </div>
+
+    <script>
+    /*
+            INTRO
+            
+Ubicacion del script. Abajo antes del cierre de la etiqueta del body
+
+            OBJETIVO
+           
+Cambiar el css de body con una apariencia de noche/dia
+          SCRIPTS
+           Modelo A
+Onclick en etiqueta
+Funciones en el script
+Acceso al CSS desde javascript
+     MODELO B
+Acceso al CSS con metodos de clases (add, toggle)
+Objeto Event. Captura del ID
+
+AMBITOS IMPLICADOS
+-Eventos
+-DOM
+-Funciones
+-Metodos acceso CSS
+
+*/
+
+/* MODELO A
+ function apariencia(){
+
+// alert("Dia y noche");
+
+const botonApariencia=document.getElementById("btn1");
+const cuerpoPagina=document.querySelector("body");
+const contenedor=document.querySelector(".contenedor");
+
+cuerpoPagina.style.backgroundColor="black";
+contenedor.style.opacity="0.4";
+botonApariencia.style.color="white";
+
+botonApariencia.style.opacity="1";
+botonApariencia.innerText="Dia";
+
+}
+*/
+
+/* MODELO B */
+
+function apariencia() {
+  const botonApariencia=document.getElementById("btn1");
+  const cuerpoPagina=document.querySelector("body");
+  const contenedor=document.querySelector(".contenedor");
+
+  cuerpoPagina.classList.toggle ("noche_body");
+  contenedor.classList.toggle ("noche_contenedor");
+  botonApariencia.classList.toggle ("noche_boton");
+
+  let estadoBoton=botonApariencia.innerText;
+  alert (estadoBoton);
+
+  botonApariencia.innerText="Día";
+
+  if (estadoBoton=="Día") { botonApariencia.innerText="Noche"};
+  if (estadoBoton=="Noche") {botonApariencia.innerText="Día"};
+
+}
+
+    </script>
+  </body>
+</html>
