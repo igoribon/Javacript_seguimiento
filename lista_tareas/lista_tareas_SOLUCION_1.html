@@ -25,10 +25,10 @@
           <button id="btn2"> + </button>
         </div>
         <section class="tareas">
-          <ul>
+          <ul><!--
             <li>Comprar dos tajadas de salmon</li>
             <li>Hacer pisto con tomate</li>
-            <li>Hacer lavadora de color</li>
+            <li>Hacer lavadora de color</li>-->
           </ul>
         </section>
       </header>
@@ -102,27 +102,56 @@ Utilizar una variable de salida para sacar el resultado
 
 */
 
+/*
+
 // Modelo A
 
-  const botonAnadir=document.getElementById ("btn2"); //Creamos una constante y le decimos que tenga el valor del botón
-  const cajaListaTareas=document.querySelector (".tareas ul"); //Otra constante a la que le damos el valor del selector de la lista que está dentro de tareas
+  const botonAnadir=document.getElementById ("btn2"); //Creamos una constante y le decimos que tenga el valor del botón 
+  
+  const cajaListaTareas=document.querySelector (".tareas ul");   //Otra constante a la que le damos el valor del selector de la lista que está dentro de tareas
 
-  //Creamos el método onclick del botón para que cuando se pulse se ejecute la función de después del igual
+  //Creamos el método onclick del botón para que cuando se pulse se ejecute la función de después del igual 
+  
   botonAnadir.onclick=function () {
 
-  /* creamos la constante con el elemento inpt1 y luego cramos la variable que recoje el valor de value de la constante. 
-  Se podría hacer todo en una línea pero si vamos a andar cogiendo valores de ese elemento es mejor crear la cosntante
-  del elemento y luego ir pidiendo valores de ese elemento. */
+  // creamos la constante con el elemento inpt1 y luego cramos la variable que recoje el valor de value de la constante.   Se podría hacer todo en una línea pero si vamos a andar cogiendo valores de ese elemento es mejor crear la cosntante   del elemento y luego ir pidiendo valores de ese elemento.
+
     const cajaNuevaTarea=document.getElementById ("inpt1");
     let nuevaTarea=cajaNuevaTarea.value;
 
   //console.log (nuevaTarea);
 
-  /* Creamos una nueva variable que tiene los elementos de li y dentro el texto ue está en la varible nuevaTarea
-  y lo añade como html a la constante que tiene de valor el ul de tareas mediante el operador +=*/
+  // Creamos una nueva variable que tiene los elementos de li y dentro el texto ue está en la varible nuevaTarea   y lo añade como html a la constante que tiene de valor el ul de tareas mediante el operador +=   Los li van entre comillas porque los tiene que escribir tal cual pero nuevaTarea no porque es el nombre de una constante
+
     let resultadoNuevaTarea="<li>"+nuevaTarea+"</li>";
     cajaListaTareas.innerHTML+=resultadoNuevaTarea;
+
 }
+
+*/
+
+//Modelo B
+
+//Creamos una función que cree un array en cuanto se cargue la página
+  document.body.onload=function() {
+   
+
+// El array con los primeros valores de la lista
+    const listaTareas= ["Comprar dos tajadas de salmon","Hacer pisto con tomate","Hacer lavadora de color"];
+    const cajaListaTareas=document.querySelector (".tareas ul"); 
+  
+let result=""; //Como la variable result se crea dentro del for y no se puede acceder fuera ponemos esta línea como cadena vacía que se transformará dentro del for y así la tenemos accesible desde fuera del for
+
+//Esto es un bucle. La palabra clave es índice dentro de listaTareas. Va a recorrer todos los elementos del array ListaTareas. Crea una constante llamada result con el número de índice de cada elemento del array. El primer elemento de un array tiene el índice 0. Con el += hacemos queresult no vaya machando con los nuevos datos si no que añada nuevos. Además creamos nuevo código html con los Li y los elementos del array que luego fuera del for añadimos a cajaListaTarea
+    for (const indice in listaTareas) {
+      result += "<li>"+listaTareas[indice]+"</li>";
+
+    }
+
+  //Ahora que ya tenemos la variable result creada fuera y con un valor que le da el for podemos usar ese valor para añadir html dentro de cajaListaTareas
+    cajaListaTareas.innerHTML+=result;
+
+  }
 
     </script>
   </body>
