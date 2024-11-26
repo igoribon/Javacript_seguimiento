@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="Lista_tareas_SOLUCION_1.css">
+
+    <style></style>
+
+  </head>
+  <body>
+    <div class="contenedor">
+      <nav>
+        <ul>
+          <li>Inicio</li>
+          <li>Productos</li>
+          <li>Contacto</li>
+        </ul>
+      </nav>
+      <header>
+        <h1>Lista de Tareas</h1>
+        <div>
+          <input id="inpt1" class="entradaTareas" type="text" value="Limpiar el coche"/>
+          <button id="btn2"> + </button>
+        </div>
+        <section class="tareas">
+          <ul>
+            <li>Comprar dos tajadas de salmon</li>
+            <li>Hacer pisto con tomate</li>
+            <li>Hacer lavadora de color</li>
+          </ul>
+        </section>
+      </header>
+      <div class="content">
+        <main>
+          <button id="btn1">NOCHE</button>
+        </main>
+        <aside>
+          <form action="cliente.html" method="get">
+            <legend>Logueo-Registro</legend>
+            <p></p>
+
+            <input type="text" name="nombre" /> Nombre
+            <p></p>
+
+            <input type="text" name="apellido" /> Apellido
+            <p></p>
+
+            <input type="password" /> Contraseña
+            <p></p>
+            <input type="text" name="edad" /> Edad
+            <p></p>
+
+            <button type="submit">ENVIAR</button>
+          </form>
+        </aside>
+      </div>
+
+      <footer></footer>
+    </div>
+
+    <script>
+/*
+            INTRO
+            
+Script extenso o abreviado por variables que ya continen objetos
+Funciones que llaman a funciones https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_onclick_dom
+Colocacion de los elementos fuera de la funcion, scope
+Recoger los valores "en tiempo de ejecucion"
+Estructura y lectura secuencial. Ejecuta las instruciones una detras de otra
+Utilizar let, var o const, para variables u objetos complejos
+Nombres de constantes, objetos, funciones, descriptivos
+Errores en naming mayusculas/minusculas (camelCase, SnakeCase) y plural/singular
+OBJETIVO
+Crear una lista de tareas que sea dimamica, en muchos sentidos
+
+            SCRIPTS
+             Modelo A
+            
+Coger un elemento de input y pasarlo a la lista
+Onclick en el objeto boton
+Crear un <li> y meterlo en el <ul>
+Incluir el texto de lo que queremos poner
+
+             MODELO B
+            
+Recopilar la lista de tareas en un array (o en varias variables)
+Crear variables o arrays
+Iterarlo con un bucle, recorriendo el array
+Utilizar una variable de salida para sacar el resultado
+
+
+            AMBITOS IMPLICADOS
+            -Eventos
+            -DOM
+            -Funciones
+            -Bucles
+            -Crear elementos HTML
+            -Variables y arrays
+
+
+*/
+
+// Modelo A
+
+  const botonAnadir=document.getElementById ("btn2"); //Creamos una constante y le decimos que tenga el valor del botón
+  const cajaListaTareas=document.querySelector (".tareas ul"); //Otra constante a la que le damos el valor del selector de la lista que está dentro de tareas
+
+  //Creamos el método onclick del botón para que cuando se pulse se ejecute la función de después del igual
+  botonAnadir.onclick=function () {
+
+  /* creamos la constante con el elemento inpt1 y luego cramos la variable que recoje el valor de value de la constante. 
+  Se podría hacer todo en una línea pero si vamos a andar cogiendo valores de ese elemento es mejor crear la cosntante
+  del elemento y luego ir pidiendo valores de ese elemento. */
+    const cajaNuevaTarea=document.getElementById ("inpt1");
+    let nuevaTarea=cajaNuevaTarea.value;
+
+  //console.log (nuevaTarea);
+
+  /* Creamos una nueva variable que tiene los elementos de li y dentro el texto ue está en la varible nuevaTarea
+  y lo añade como html a la constante que tiene de valor el ul de tareas mediante el operador +=*/
+    let resultadoNuevaTarea="<li>"+nuevaTarea+"</li>";
+    cajaListaTareas.innerHTML+=resultadoNuevaTarea;
+}
+
+    </script>
+  </body>
+</html>
