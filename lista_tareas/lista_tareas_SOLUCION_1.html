@@ -148,10 +148,28 @@ let result=""; //Como la variable result se crea dentro del for y no se puede ac
 
     }
 
-  //Ahora que ya tenemos la variable result creada fuera y con un valor que le da el for podemos usar ese valor para añadir html dentro de cajaListaTareas
+  //Ahora que ya tenemos la variable result creada fuera del for y con un valor que le da el for podemos usar ese valor para añadir html dentro de cajaListaTareas
     cajaListaTareas.innerHTML+=result;
 
   }
+
+  function verificarParImpar(numero) {
+  console.log("Verificando el número:", numero); // Declaración de registro
+
+  if (numero % 2 === 0) {
+    return "El número es par"; // Devuelve si el número es par
+  } else {
+    return "El número es impar"; // Devuelve si el número es impar
+  }
+}
+
+// Usar la función
+let resultado = verificarParImpar(10);
+console.log(resultado); // El número es par
+
+resultado = verificarParImpar(7);
+console.log(resultado); // El número es impar
+
 
     </script>
   </body>
